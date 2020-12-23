@@ -113,13 +113,13 @@ The machines on the internal network are not exposed to the public Internet.
 
 Only the jump box provisioner machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
 
-- 71.135.133.0/24
+- 71.135.133.0/24 via SSH to the Jump-Box-Provisioner Public IP of 52.249.181.84
 
 Machines within the network can only be accessed by jump box provisioner.
 
 Which machine did you allow to access your ELK VM? What was its IP address?
 
-- My Jump Box 
+- Jump-Box-Provisioner
   - Public IP: 52.249.181.84
   - Private IP: 10.0.0.7
   
@@ -179,7 +179,7 @@ In order to use the playbook, you will need to have an Ansible control node alre
 
 SSH into the control node and follow the steps below:
 
-- Copy the playbook files to Ansible Control Node. Playbooks for Filebeat and Metricbeat are also here: [filebeat-playbook](https://github.com/logmanc87/Elk-Project/blob/master/Playbooks/filebeat-playbook.yml) & [metricbeat-playbook](https://github.com/logmanc87/Elk-Project/blob/master/Playbooks/metricbeat-playbook.yml)
+- Copy the playbook files to Ansible Control Node. Playbooks can be found here: [install-elk](https://github.com/logmanc87/Elk-Project/blob/master/Playbooks/install-elk.yml) | [filebeat-playbook](https://github.com/logmanc87/Elk-Project/blob/master/Playbooks/filebeat-playbook.yml) | [metricbeat-playbook](https://github.com/logmanc87/Elk-Project/blob/master/Playbooks/metricbeat-playbook.yml)
 
 ```
 $ cd /etc/ansible
