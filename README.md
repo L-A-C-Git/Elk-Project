@@ -4,7 +4,7 @@ The files in this repository were used to configure the network depicted below.
 
 ![TODO: Update the path with the name of your diagram](images/diagram_filename.png)
 
-These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the _____ file may be used to install only certain pieces of it, such as Filebeat.
+These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the YAML file may be used to install only certain pieces of it, such as Filebeat.
 
   - _TODO: Enter the playbook file._
 
@@ -34,11 +34,11 @@ Integrating an ELK server allows users to easily monitor the vulnerable VMs for 
 
 What does Filebeat watch for?
 
-Filebeat watches for changes to files on the machine.
+- Filebeat watches for changes to files on the machine.
 
 What does Metricbeat record?
 
-Metricbeat collects metrics from the operating system and from services running on the server.
+- Metricbeat collects metrics from the operating system and from services running on the server.
 
 The configuration details of each machine may be found below.
 
@@ -55,22 +55,24 @@ The machines on the internal network are not exposed to the public Internet.
 
 Only the jump box provisioner machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
 
-- 5061 Kibana Port
+- 71.135.133.0/24
 
 Machines within the network can only be accessed by jump box provisioner.
 
 Which machine did you allow to access your ELK VM? What was its IP address?
 
-- My IP Address: 71.135.133.0/24
-
+- My Jump Box 
+  - Public IP: 52.249.181.84
+  - Private IP: 10.0.0.7
+  
 A summary of the access policies in place can be found in the table below.
 
 | Name       | Publicly Accessible | Allowed IP Addresses |
 |------------|---------------------|----------------------|
 | Jump Box   | Yes                 | 71.135.133.0/24      |
-| Web-1      | No                  | 10.1.0.4             |
-| Web-2      | No                  | 10.1.0.4             |
-| ELK-Server | No                  | 10.1.0.4             |
+| Web-1      | No                  | 10.0.0.7 & 10.1.0.4  |
+| Web-2      | No                  | 10.0.0.7 & 10.1.0.4  |
+| ELK-Server | No                  | 10.0.0.7 & 10.1.0.4  |
 
 
 ## Elk Configuration
