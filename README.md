@@ -223,14 +223,14 @@ cd /etc/ansible
 
 - Edit the filebeat-config.yml
   - Scroll to line #1106 and replace the IP address with the IP address of your ELK machine.
-    output.elasticsearch:
+    ```output.elasticsearch:
     hosts: ["10.1.0.4:9200"]
     username: "elastic"
-    password: "changeme"
+    password: "changeme"```
 
   - Scroll to line #1806 and replace the IP address with the IP address of your ELK machine.
-    setup.kibana:
-    host: "10.1.0.4:5601"
+    ```setup.kibana:
+    host: "10.1.0.4:5601"```
 
 ```
 cd /etc/ansible
