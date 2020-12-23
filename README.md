@@ -121,14 +121,14 @@ SSH into the control node and follow the steps below:
 
 - Copy the playbook file to Ansible Control Node. Playbooks for Filebeat and Metricbeat are also here: Link & Link
 
-'''
+```
 $ cd /etc/ansible
 $ mkdir files
 * Clone Repository + IaC Files
 $ git clone https://github.com/logmanc87/Elk-Project.git
 * Move Playbooks and hosts file Into `/etc/ansible`
 $ cp /Elk-Project/ReadMe/Playbooks/*
-'''
+```
 
 - Update the hosts file to include webservers and elk.
 - Edit hosts file to update and to make Ansible run the playbook on a specific machine, and specify which machine to install the ELK server on versus which to install Filebeat.
