@@ -179,13 +179,13 @@ In order to use the playbook, you will need to have an Ansible control node alre
 
 SSH into the control node and follow the steps below:
 
-- Copy the playbook files to Ansible Control Node. Playbooks can be found here: [install-elk](https://github.com/logmanc87/Elk-Project/blob/master/Playbooks/install-elk.yml) | [filebeat-playbook](https://github.com/logmanc87/Elk-Project/blob/master/Playbooks/filebeat-playbook.yml) | [metricbeat-playbook](https://github.com/logmanc87/Elk-Project/blob/master/Playbooks/metricbeat-playbook.yml)
+- Copy the yml files to the Ansible control node. The yml files can be found here: [install-elk](https://github.com/logmanc87/Elk-Project/blob/master/Playbooks/install-elk.yml) | [filebeat-playbook](https://github.com/logmanc87/Elk-Project/blob/master/Playbooks/filebeat-playbook.yml) | [metricbeat-playbook](https://github.com/logmanc87/Elk-Project/blob/master/Playbooks/metricbeat-playbook.yml)
 
 ```
 $ cd /etc/ansible
-* Clone Repository
+# Clone Repository
 $ git clone https://github.com/logmanc87/Elk-Project.git
-* Move Playbooks into `/etc/ansible`
+# Move yml files into `/etc/ansible`
 $ cp Elk-Project/Playbooks/* .
 ```
 
