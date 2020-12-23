@@ -128,8 +128,8 @@ A summary of the access policies in place can be found in the table below.
 | Name       | Publicly Accessible | Allowed IP Addresses |
 |------------|---------------------|----------------------|
 | Jump-Box-Provisioner   | Yes                 | 71.135.133.0/24      |
-| Web-1      | No                  | 10.0.0.7 & 10.1.0.4  |
-| Web-2      | No                  | 10.0.0.7 & 10.1.0.4  |
+| Web-1      | No                  | 10.0.0.7 |
+| Web-2      | No                  | 10.0.0.7  |
 | ELK-VM | No                  | 10.0.0.7 |
 
 
