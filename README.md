@@ -179,18 +179,17 @@ In order to use the playbook, you will need to have an Ansible control node alre
 
 SSH into the control node and follow the steps below:
 
-- Copy the playbook file to Ansible Control Node. Playbooks for Filebeat and Metricbeat are also here: Link & Link
+- Copy the playbook file to Ansible Control Node. Playbooks for Filebeat and Metricbeat are also here: [filebeat-playbook.yml](https://github.com/logmanc87/Elk-Project/blob/master/Playbooks/filebeat-playbook.yml) & [metricbeat-playbook.yml](https://github.com/logmanc87/Elk-Project/blob/master/Playbooks/metricbeat-playbook.yml)
 
 ```
 $ cd /etc/ansible
 * Clone Repository
 $ git clone https://github.com/logmanc87/Elk-Project.git
-* Move Playbooks and hosts file Into `/etc/ansible`
+* Move Playbooks into `/etc/ansible`
 $ cp Elk-Project/Playbooks/* .
 ```
 
 - Update the hosts file to include webservers and elk.
-- Copy of the hosts file is also here: Link
 
 ```
 $ cd /etc/ansible
@@ -213,4 +212,4 @@ cd /etc/ansible
  $ ansible-playbook install_metricbeat.yml webservers
  ```
  
- - Check that the ELK server is running: http://[Host IP]/app/kibana#/home
+ - Check that the ELK server is running: http://[ELK-Public-IP]:5601/app/kibana#/home
