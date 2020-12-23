@@ -132,27 +132,27 @@ $ cp /Elk-Project/ReadMe/Playbooks/*
 
 - Update the hosts file to include webservers and elk.
 - Edit hosts file to update and to make Ansible run the playbook on a specific machine, and specify which machine to install the ELK server on versus which to install Filebeat.
-- Run the playbook, and navigate to Kibana (http://[Host IP]/app/kibana#/home) to check that the installation worked as expected.
 - Copy of the hosts file is also here: Link
 
+```
 $ cd /etc/ansible
 $ nano hosts
-* Ex 2: A collection of hosts belonging to the 'webservers' group
-
+# Ex 2: A collection of hosts belonging to the 'webservers' group
 [webservers]
-
 10.0.0.5 ansible_python_interpreter=/usr/bin/python3
 10.0.0.6 ansible_python_interpreter=/usr/bin/python3
 
 [elk]
-
 10.1.0.4 ansible_python_interpreter=/usr/bin/python3
+```
 
-- Run the playbook, and navigate to Kibana (http://[Host IP]/app/kibana#/home) to check that the installation worked as expected.
+- Run the playbooks.
 
+```
 cd /etc/ansible
  $ ansible-playbook install_elk.yml elk
  $ ansible-playbook install_filebeat.yml webservers
  $ ansible-playbook install_metricbeat.yml webservers
+ ```
  
  - Check that the ELK server is running: http://[Host IP]/app/kibana#/home
