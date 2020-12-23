@@ -175,7 +175,7 @@ These Beats allow us to collect the following information from each machine:
 - Metricbeat: Collects machine metrics, such as uptime.
 
 ## Using the Playbook
-In order to use the playbook, you will need to have an Ansible control node already configured. If no Ansible control node is configured, please refer to the [pentest-yml](https://github.com/logmanc87/Elk-Project/blob/master/Playbooks/pentest-yml). Assuming you have such a control node provisioned: 
+In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
 
@@ -203,16 +203,37 @@ $ nano hosts
 10.1.0.4 ansible_python_interpreter=/usr/bin/python3
 ```
 
-- Run the following yml files.
+- Run the install-elk.yml file.
 
 ```
 cd /etc/ansible
  $ ansible-playbook install-elk.yml
+```
+
+- Ensure a NSG rule exists allowing TCP traffic over port 5601.
+
+- Check that the ELK server is running: http://[ELK-Public-IP]:5601/app/kibana#/home
+
+- Open your ELK server homepage.
+  - Click on Add Log Data.
+  - Choose System Logs.
+  - Click on the DEB tab under Getting Started to view the correct Linux Filebeat installation instructions.
+  
+- In your Ansible container run ```curl https://gist.githubusercontent.com/slape/5cc350109583af6cbe577bbcc0710c93/raw/eca603b72586fbe148c11f9c87bf96a63cb25760/Filebeat > /etc/ansible/files/filebeat-config.yml```
+
+- Edit the filebeat-config.yml
+  - Scroll to line #1106 and replace the IP address with the IP address of your ELK machine.
+    output.elasticsearch:
+    hosts: ["10.1.0.4:9200"]
+    username: "elastic"
+    password: "changeme"
+
+  - Scroll to line #1806 and replace the IP address with the IP address of your ELK machine.
+    setup.kibana:
+    host: "10.1.0.4:5601"
+
+```
+cd /etc/ansible
  $ ansible-playbook filebeat-playbook.yml
  $ ansible-playbook metricbeat-playbook.yml
- ```
- 
- 
- 
- 
- - Check that the ELK server is running: http://[ELK-Public-IP]:5601/app/kibana#/home
+```
