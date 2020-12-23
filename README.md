@@ -123,9 +123,9 @@ SSH into the control node and follow the steps below:
 
 $ cd /etc/ansible
 $ mkdir files
-# Clone Repository + IaC Files
+* Clone Repository + IaC Files
 $ git clone https://github.com/logmanc87/Elk-Project.git
-# Move Playbooks and hosts file Into `/etc/ansible`
+* Move Playbooks and hosts file Into `/etc/ansible`
 $ cp /Elk-Project/ReadMe/Playbooks/*
 
 - Update the hosts file to include webservers and elk.
@@ -135,7 +135,7 @@ $ cp /Elk-Project/ReadMe/Playbooks/*
 
 $ cd /etc/ansible
 $ nano hosts
-# Ex 2: A collection of hosts belonging to the 'webservers' group
+* Ex 2: A collection of hosts belonging to the 'webservers' group
 
 [webservers]
 10.0.0.5 ansible_python_interpreter=/usr/bin/python3
