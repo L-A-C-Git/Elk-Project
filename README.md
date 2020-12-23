@@ -88,11 +88,11 @@ Efficient: Because you don’t need to install any extra software, there’s mor
 
 The playbook implements the following tasks:
 
-* Install docker.io
-* Install pip3
-* Install Docker python module
-* Increase virtual memory
-* Download and launch a docker
+- Install docker.io
+- Install pip3
+- Install Docker python module
+- Increase virtual memory
+- Download and launch a docker
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
