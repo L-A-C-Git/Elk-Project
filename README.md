@@ -16,8 +16,7 @@ This document contains the following details:
   - Machines Being Monitored
 - How to Use the Ansible Build
 
-
-### Description of the Topology
+## Description of the Topology
 
 The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the D*mn Vulnerable Web Application.
 
@@ -42,7 +41,6 @@ What does Metricbeat record?
 Metricbeat collects metrics from the operating system and from services running on the server.
 
 The configuration details of each machine may be found below.
-_Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdown_tables) to add/remove values from the table_.
 
 | Name       | Function   | IP Address | Operating System |
 |------------|------------|------------|------------------|
@@ -51,19 +49,19 @@ _Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdow
 | Web-2      | Webserver  | 10.0.0.6   | Linux            |
 | ELK-Server | Monitoring | 10.1.0.4   | Linux            |
 
-### Access Policies
+## Access Policies
 
 The machines on the internal network are not exposed to the public Internet. 
 
 Only the jump box provisioner machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
 
-5061 Kibana Port
+- 5061 Kibana Port
 
 Machines within the network can only be accessed by jump box provisioner.
 
 Which machine did you allow to access your ELK VM? What was its IP address?
 
-My IP Address: 71.135.133.0/24
+- My IP Address: 71.135.133.0/24
 
 A summary of the access policies in place can be found in the table below.
 
@@ -75,16 +73,16 @@ A summary of the access policies in place can be found in the table below.
 | ELK-Server | No                  | 10.1.0.4             |
 
 
-### Elk Configuration
+## Elk Configuration
 
 Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous for the following reasons:
 
-Free: Ansible is an open-source tool.
-Very simple to set up and use: No special coding skills are necessary to use Ansible’s playbooks (more on playbooks later).
-Powerful: Ansible lets you model even highly complex IT workflows.
-Flexible: You can orchestrate the entire application environment no matter where it’s deployed. You can also customize it based on your needs.
-Agentless: You don’t need to install any other software or firewall ports on the client systems you want to automate. You also don’t have to set up a separate management structure.
-Efficient: Because you don’t need to install any extra software, there’s more room for application resources on your server.
+- Free: Ansible is an open-source tool.
+- Very simple to set up and use: No special coding skills are necessary to use Ansible’s playbooks (more on playbooks later).
+- Powerful: Ansible lets you model even highly complex IT workflows.
+- Flexible: You can orchestrate the entire application environment no matter where it’s deployed. You can also customize it based on your needs.
+- Agentless: You don’t need to install any other software or firewall ports on the client systems you want to automate. You also don’t have to set up a separate management structure.
+- Efficient: Because you don’t need to install any extra software, there’s more room for application resources on your server.
 
 The playbook implements the following tasks:
 
@@ -98,27 +96,59 @@ The following screenshot displays the result of running `docker ps` after succes
 
 ![TODO: Update the path with the name of your screenshot of docker ps output](images/docker_ps_output.png)
 
-### Target Machines & Beats
+## Target Machines & Beats
+
 This ELK server is configured to monitor the following machines:
-- _TODO: List the IP addresses of the machines you are monitoring_
+
+| Name   | IP Address |
+|--------|------------|
+| Web-1  | 10.0.0.5   |
+| Web-2  | 10.0.0.6   |
 
 We have installed the following Beats on these machines:
-- _TODO: Specify which Beats you successfully installed_
+
+- Microbeats.
 
 These Beats allow us to collect the following information from each machine:
-- _TODO: In 1-2 sentences, explain what kind of data each beat collects, and provide 1 example of what you expect to see. E.g., `Winlogbeat` collects Windows logs, which we use to track user logon events, etc._
 
-### Using the Playbook
+- Filebeat: Collects data about the file system.
+- Metricbeat: Collects machine metrics, such as uptime.
+
+## Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
-- Copy the _____ file to _____.
-- Update the _____ file to include...
-- Run the playbook, and navigate to ____ to check that the installation worked as expected.
 
-_TODO: Answer the following questions to fill in the blanks:_
-- _Which file is the playbook? Where do you copy it?_
-- _Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?_
-- _Which URL do you navigate to in order to check that the ELK server is running?
+- Copy the playbook file to Ansible Control Node. Playbooks for Filebeat and Metricbeat are also here: Link & Link
 
-_As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
+$ cd /etc/ansible
+$ mkdir files
+# Clone Repository + IaC Files
+$ git clone https://github.com/logmanc87/Elk-Project.git
+# Move Playbooks and hosts file Into `/etc/ansible`
+$ cp /Elk-Project/ReadMe/Playbooks/*
+
+- Update the hosts file to include webservers and elk.
+- Edit hosts file to update and to make Ansible run the playbook on a specific machine, and specify which machine to install the ELK server on versus which to install Filebeat.
+- Run the playbook, and navigate to Kibana (http://[Host IP]/app/kibana#/home) to check that the installation worked as expected.
+- Copy of the hosts file is also here: Link
+
+$ cd /etc/ansible
+$ nano hosts
+# Ex 2: A collection of hosts belonging to the 'webservers' group
+
+[webservers]
+10.0.0.5 ansible_python_interpreter=/usr/bin/python3
+10.0.0.6 ansible_python_interpreter=/usr/bin/python3
+
+[elk]
+10.1.0.4 ansible_python_interpreter=/usr/bin/python3
+
+- Run the playbook, and navigate to Kibana (http://[Host IP]/app/kibana#/home) to check that the installation worked as expected.
+
+cd /etc/ansible
+ $ ansible-playbook install_elk.yml elk
+ $ ansible-playbook install_filebeat.yml webservers
+ $ ansible-playbook install_metricbeat.yml webservers
+ 
+ - Check that the ELK server is running: http://[Host IP]/app/kibana#/home
