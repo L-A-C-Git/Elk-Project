@@ -102,10 +102,10 @@ The configuration details of each machine may be found below.
 
 | Name       | Function   | IP Address | Operating System |
 |------------|------------|------------|------------------|
-| Jump Box   | Gateway    | 10.0.0.7   | Linux            |
+| Jump-Box-Provisioner   | Gateway    | 10.0.0.7   | Linux            |
 | Web-1      | Webserver  | 10.0.0.5   | Linux            |
 | Web-2      | Webserver  | 10.0.0.6   | Linux            |
-| ELK-Server | Monitoring | 10.1.0.4   | Linux            |
+| ELK-VM | Monitoring | 10.1.0.4   | Linux            |
 
 ## Access Policies
 
@@ -127,10 +127,10 @@ A summary of the access policies in place can be found in the table below.
 
 | Name       | Publicly Accessible | Allowed IP Addresses |
 |------------|---------------------|----------------------|
-| Jump Box   | Yes                 | 71.135.133.0/24      |
+| Jump-Box-Provisioner   | Yes                 | 71.135.133.0/24      |
 | Web-1      | No                  | 10.0.0.7 & 10.1.0.4  |
 | Web-2      | No                  | 10.0.0.7 & 10.1.0.4  |
-| ELK-Server | No                  | 10.0.0.7 & 10.1.0.4  |
+| ELK-VM | No                  | 10.0.0.7 |
 
 
 ## Elk Configuration
