@@ -175,7 +175,7 @@ These Beats allow us to collect the following information from each machine:
 - Metricbeat: Collects machine metrics, such as uptime.
 
 ## Using the Playbook
-In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
+In order to use the playbook, you will need to have an Ansible control node already configured. If no Ansible control node is configured, please refer to the [pentest-yml](https://github.com/logmanc87/Elk-Project/blob/master/Playbooks/pentest-yml). Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
 
@@ -203,13 +203,16 @@ $ nano hosts
 10.1.0.4 ansible_python_interpreter=/usr/bin/python3
 ```
 
-- Run the playbooks.
+- Run the following yml files.
 
 ```
 cd /etc/ansible
- $ ansible-playbook install_elk.yml
+ $ ansible-playbook install-elk.yml
  $ ansible-playbook filebeat-playbook.yml
  $ ansible-playbook metricbeat-playbook.yml
  ```
+ 
+ 
+ 
  
  - Check that the ELK server is running: http://[ELK-Public-IP]:5601/app/kibana#/home
