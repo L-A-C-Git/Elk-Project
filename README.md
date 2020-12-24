@@ -238,19 +238,21 @@ cd /etc/ansible
     host: "10.1.0.4:5601"
     ```
 
-- In your Ansible container run the following playbook to install filebeat:
+- In your Ansible container run the following playbook to install Filebeat:
 
 ```
 cd /etc/ansible
 $ ansible-playbook filebeat-playbook.yml
 ```
 
-- To confirm that the ELK stack is receiving logs, navigate back to the Filebeat installation page on the ELK server GUI.
-  - Verify that your playbook is completing Steps 1-4.
-  - On the same page, scroll to Step 5: Module Status and click Check Data.
-  - Scroll to the bottom and click on Verify Incoming Data.
+- To confirm that the ELK stack is receiving logs, navigate back to the Filebeat installation page on the ELK server GUI, scroll to Step 5: Module Status and click Check Data.
 
 ## Install Metricbeat
+
+- Open your ELK server homepage.
+  - Click on Add Metric Data.
+  - Click Docker Metrics.
+  - Click the DEB tab under Getting Started for the correct Linux instructions.
 
 - In your Ansible container run ```curl https://gist.githubusercontent.com/slape/58541585cc1886d2e26cd8be557ce04c/raw/0ce2c7e744c54513616966affb5e9d96f5e12f73/metricbeat > /etc/ansible/metricbeat-config.yml```
 
@@ -276,7 +278,7 @@ $ nano metricbeat-config.yml
   password: "changeme"
   ```
 
-- In your Ansible container run the following playbook to install metricbeat:
+- In your Ansible container run the following playbook to install Metricbeat:
 
 ```
 cd /etc/ansible
