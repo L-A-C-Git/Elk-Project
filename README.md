@@ -219,7 +219,7 @@ cd /etc/ansible
   - Choose System Logs.
   - Click on the DEB tab under Getting Started to view the correct Linux Filebeat installation instructions.
   
-- In your Ansible container run ```curl https://gist.githubusercontent.com/slape/5cc350109583af6cbe577bbcc0710c93/raw/eca603b72586fbe148c11f9c87bf96a63cb25760/Filebeat > /etc/ansible/files/filebeat-config.yml```
+- In your Ansible container run ```curl https://gist.githubusercontent.com/slape/5cc350109583af6cbe577bbcc0710c93/raw/eca603b72586fbe148c11f9c87bf96a63cb25760/Filebeat > /etc/ansible/filebeat-config.yml```
 
 - Edit the filebeat-config.yml
   - Scroll to line #1106 and replace the IP address with the IP address of your ELK machine.
@@ -236,8 +236,40 @@ cd /etc/ansible
     host: "10.1.0.4:5601"
     ```
 
+- In your Ansible container run the following playbook to install filebeat:
+
 ```
 cd /etc/ansible
- $ ansible-playbook filebeat-playbook.yml
- $ ansible-playbook metricbeat-playbook.yml
+$ ansible-playbook filebeat-playbook.yml
+```
+
+- To confirm that the ELK stack is receiving logs, navigate back to the Filebeat installation page on the ELK server GUI.
+  - Verify that your playbook is completing Steps 1-4.
+  - On the same page, scroll to Step 5: Module Status and click Check Data.
+  - Scroll to the bottom and click on Verify Incoming Data.
+
+- In your Ansible container run ```curl https://gist.githubusercontent.com/slape/58541585cc1886d2e26cd8be557ce04c/raw/0ce2c7e744c54513616966affb5e9d96f5e12f73/metricbeat > /etc/ansible/metricbeat-config.yml```
+
+- Edit the metricbeat-config.yml
+  - Scroll to line #62 and replace the IP address with the IP address of your ELK machine
+  ```
+  # This requires a Kibana endpoint configuration.
+  setup.kibana:
+  host: "10.1.0.4:5601"
+  ```
+
+  - Scroll to line #95 and replace the IP address with the IP address of your ELK machine.
+  ```
+  output.elasticsearch:
+  # Array of hosts to connect to.
+  hosts: ["10.1.0.4:9200"]
+  username: "elastic"
+  password: "changeme"
+  ```
+
+- In your Ansible container run the following playbook to install metricbeat:
+
+```
+cd /etc/ansible
+$ ansible-playbook metricbeat-playbook.yml
 ```
