@@ -214,6 +214,8 @@ cd /etc/ansible
 
 - Check that the ELK server is running: http://[ELK-Public-IP]:5601/app/kibana#/home
 
+## Install Filebeat
+
 - Open your ELK server homepage.
   - Click on Add Log Data.
   - Choose System Logs.
@@ -248,6 +250,8 @@ $ ansible-playbook filebeat-playbook.yml
   - On the same page, scroll to Step 5: Module Status and click Check Data.
   - Scroll to the bottom and click on Verify Incoming Data.
 
+## Install Metricbeat
+
 - In your Ansible container run ```curl https://gist.githubusercontent.com/slape/58541585cc1886d2e26cd8be557ce04c/raw/0ce2c7e744c54513616966affb5e9d96f5e12f73/metricbeat > /etc/ansible/metricbeat-config.yml```
 
 - Edit the metricbeat-config.yml
@@ -273,3 +277,5 @@ $ ansible-playbook filebeat-playbook.yml
 cd /etc/ansible
 $ ansible-playbook metricbeat-playbook.yml
 ```
+
+- To verify that your playbook works as expected, on the Metricbeat installation page in the ELK server GUI, scroll to Step 5: Module Status and click Check Data.
