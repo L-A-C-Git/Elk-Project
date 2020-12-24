@@ -255,6 +255,11 @@ $ ansible-playbook filebeat-playbook.yml
 - In your Ansible container run ```curl https://gist.githubusercontent.com/slape/58541585cc1886d2e26cd8be557ce04c/raw/0ce2c7e744c54513616966affb5e9d96f5e12f73/metricbeat > /etc/ansible/metricbeat-config.yml```
 
 - Edit the metricbeat-config.yml
+```
+$ cd /etc/ansible
+$ nano metricbeat-config.yml
+```
+
   - Scroll to line #62 and replace the IP address with the IP address of your ELK machine
   ```
   # This requires a Kibana endpoint configuration.
