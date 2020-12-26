@@ -2,11 +2,11 @@
 
 The files in this repository were used to configure the network depicted below.
 
-![Diagram](https://github.com/logmanc87/Elk-Project/blob/master/images/Final.png)
+![Diagram](https://github.com/L-A-C-Git/Elk-Project/blob/master/images/Final.png)
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the YAML file may be used to install only certain pieces of it, such as Filebeat.
 
-[install-elk](https://github.com/logmanc87/Elk-Project/blob/master/Playbooks/install-elk.yml)
+[install-elk](https://github.com/L-A-C-Git/Elk-Project/blob/master/Playbooks/install-elk.yml)
 
 ```
 ---
@@ -154,7 +154,7 @@ The playbook implements the following tasks:
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
-![Docker PS Output](https://github.com/logmanc87/Elk-Project/blob/master/images/Docker%20PS.jpg)
+![Docker PS Output](https://github.com/L-A-C-Git/Elk-Project/blob/master/images/Docker%20PS.jpg)
 
 ## Target Machines & Beats
 
@@ -179,14 +179,15 @@ In order to use the playbook, you will need to have an Ansible control node alre
 
 SSH into the control node and follow the steps below:
 
-- Copy the yml files to the Ansible control node. The yml files can be found here: [install-elk](https://github.com/logmanc87/Elk-Project/blob/master/Playbooks/install-elk.yml) | [filebeat-playbook](https://github.com/logmanc87/Elk-Project/blob/master/Playbooks/filebeat-playbook.yml) | [metricbeat-playbook](https://github.com/logmanc87/Elk-Project/blob/master/Playbooks/metricbeat-playbook.yml)
+- Copy the yml files to the Ansible control node. The yml files can be found here: [install-elk](https://github.com/L-A-C-Git/Elk-Project/blob/master/Playbooks/install-elk.yml) | [filebeat-playbook](https://github.com/L-A-C-Git/Elk-Project/blob/master/Playbooks/filebeat-playbook.yml) | [metricbeat-playbook](https://github.com/L-A-C-Git/Elk-Project/blob/master/Playbooks/metricbeat-playbook.yml)
 
 ```
 $ cd /etc/ansible
+mkdir files
 # Clone Repository
-$ git clone https://github.com/logmanc87/Elk-Project.git
+$ git clone https://github.com/L-A-C-Git/Elk-Project
 # Move yml files into `/etc/ansible`
-$ cp Elk-Project/Playbooks/* .
+$ cp Elk-Project/Playbooks/* files
 ```
 
 - Update the hosts file to include webservers and elk.
@@ -241,7 +242,7 @@ cd /etc/ansible
 - In your Ansible container run the following playbook to install Filebeat:
 
 ```
-cd /etc/ansible
+cd /etc/ansible/files
 $ ansible-playbook filebeat-playbook.yml
 ```
 
@@ -281,7 +282,7 @@ $ nano metricbeat-config.yml
 - In your Ansible container run the following playbook to install Metricbeat:
 
 ```
-cd /etc/ansible
+cd /etc/ansible/files
 $ ansible-playbook metricbeat-playbook.yml
 ```
 
