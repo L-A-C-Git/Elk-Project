@@ -1,10 +1,10 @@
 ## Automated ELK Stack Deployment
 
-The files in this repository were used to configure the network depicted below. 
+The files in this repository were used to configure the network depicted below.
 
 ![Diagram](https://github.com/L-A-C-Git/Elk-Project/blob/master/images/Final.png)
 
-These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the YAML file may be used to install only certain pieces of it, such as Filebeat.
+These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the YAML files may be used to install only certain pieces of it, such as Filebeat.
 
 [install-elk](https://github.com/L-A-C-Git/Elk-Project/blob/master/Playbooks/install-elk.yml)
 
@@ -179,7 +179,7 @@ In order to use the playbook, you will need to have an Ansible control node alre
 
 SSH into the control node and follow the steps below:
 
-- Copy the yml files to the Ansible control node. The yml files can be found here: [install-elk](https://github.com/L-A-C-Git/Elk-Project/blob/master/Playbooks/install-elk.yml) | [filebeat-playbook](https://github.com/L-A-C-Git/Elk-Project/blob/master/Playbooks/filebeat-playbook.yml) | [metricbeat-playbook](https://github.com/L-A-C-Git/Elk-Project/blob/master/Playbooks/metricbeat-playbook.yml)
+- Copy the YAML files to the Ansible control node. The YAML files can be found here: [install-elk](https://github.com/L-A-C-Git/Elk-Project/blob/master/Playbooks/install-elk.yml) | [filebeat-playbook](https://github.com/L-A-C-Git/Elk-Project/blob/master/Playbooks/filebeat-playbook.yml) | [metricbeat-playbook](https://github.com/L-A-C-Git/Elk-Project/blob/master/Playbooks/metricbeat-playbook.yml)
 
 ```
 $ cd /etc/ansible
@@ -190,7 +190,7 @@ $ git clone https://github.com/L-A-C-Git/Elk-Project
 $ cp Elk-Project/Playbooks/* files
 ```
 
-- Update the hosts file to include webservers and elk.
+- Update the hosts file to include webservers and elk groups, configuring the IP addresses to that of your machines.
 
 ```
 $ cd /etc/ansible
@@ -207,8 +207,8 @@ $ nano hosts
 - Run the install-elk.yml file.
 
 ```
-cd /etc/ansible/files
- $ ansible-playbook install-elk.yml
+$ cd /etc/ansible/files
+$ ansible-playbook install-elk.yml
 ```
 
 - Ensure a NSG rule exists allowing TCP traffic over port 5601.
@@ -224,7 +224,7 @@ cd /etc/ansible/files
   
 - In your Ansible container run ```curl https://gist.githubusercontent.com/slape/5cc350109583af6cbe577bbcc0710c93/raw/eca603b72586fbe148c11f9c87bf96a63cb25760/Filebeat > /etc/ansible/files/filebeat-config.yml```
 
-- Edit the filebeat-config.yml in
+- Edit the filebeat-config.yml.
 
 ```
 $ cd /etc/ansible/files
@@ -247,10 +247,10 @@ setup.kibana:
 host: "10.1.0.4:5601"
 ```
 
-- In your Ansible container run the following playbook to install Filebeat:
+- In your Ansible container run the following playbook to install Filebeat.
 
 ```
-cd /etc/ansible/files
+$ cd /etc/ansible/files
 $ ansible-playbook filebeat-playbook.yml
 ```
 
@@ -293,7 +293,7 @@ password: "changeme"
 - In your Ansible container run the following playbook to install Metricbeat:
 
 ```
-cd /etc/ansible/files
+$ cd /etc/ansible/files
 $ ansible-playbook metricbeat-playbook.yml
 ```
 
