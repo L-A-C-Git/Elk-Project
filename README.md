@@ -177,7 +177,7 @@ These Beats allow one to collect the following information from each machine:
 ## Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
-SSH into the control node and follow the steps below:
+SSH into the control node and follow the steps below.
 
 - Copy the YAML files to the Ansible control node. The YAML files can be found here: [install-elk](https://github.com/L-A-C-Git/Elk-Project/blob/master/Playbooks/install-elk.yml) | [filebeat-playbook](https://github.com/L-A-C-Git/Elk-Project/blob/master/Playbooks/filebeat-playbook.yml) | [metricbeat-playbook](https://github.com/L-A-C-Git/Elk-Project/blob/master/Playbooks/metricbeat-playbook.yml)
 
