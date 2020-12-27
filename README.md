@@ -1,6 +1,6 @@
 ## Automated ELK Stack Deployment
 
-The files in this repository were used to configure the network depicted below.
+The files in this repository were used to configure the network depicted below. 
 
 ![Diagram](https://github.com/L-A-C-Git/Elk-Project/blob/master/images/Final.png)
 
@@ -165,11 +165,11 @@ This ELK server is configured to monitor the following machines:
 | Web-1  | 10.0.0.5   |
 | Web-2  | 10.0.0.6   |
 
-We have installed the following Beats on these machines:
+The following Beats were installed on these machines:
 
 - Microbeats.
 
-These Beats allow us to collect the following information from each machine:
+These Beats allow one to collect the following information from each machine:
 
 - Filebeat: Collects data about the file system.
 - Metricbeat: Collects machine metrics, such as uptime.
@@ -204,7 +204,7 @@ $ nano hosts
 10.1.0.4 ansible_python_interpreter=/usr/bin/python3
 ```
 
-- Run the install-elk.yml file.
+- Run the install-elk.yml file. 
 
 ```
 $ cd /etc/ansible/files
