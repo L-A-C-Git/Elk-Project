@@ -186,7 +186,7 @@ $ cd /etc/ansible
 mkdir files
 # Clone Repository
 $ git clone https://github.com/L-A-C-Git/Elk-Project
-# Move yml files into `/etc/ansible`
+# Move yml files into `/etc/ansible/files`
 $ cp Elk-Project/Playbooks/* files
 ```
 
@@ -207,7 +207,7 @@ $ nano hosts
 - Run the install-elk.yml file.
 
 ```
-cd /etc/ansible
+cd /etc/ansible/files
  $ ansible-playbook install-elk.yml
 ```
 
@@ -222,9 +222,13 @@ cd /etc/ansible
   - Choose System Logs.
   - Click on the DEB tab under Getting Started to view the correct Linux Filebeat installation instructions.
   
-- In your Ansible container run ```curl https://gist.githubusercontent.com/slape/5cc350109583af6cbe577bbcc0710c93/raw/eca603b72586fbe148c11f9c87bf96a63cb25760/Filebeat > /etc/ansible/filebeat-config.yml```
+- In your Ansible container run ```curl https://gist.githubusercontent.com/slape/5cc350109583af6cbe577bbcc0710c93/raw/eca603b72586fbe148c11f9c87bf96a63cb25760/Filebeat > /etc/ansible/files/filebeat-config.yml```
 
-- Edit the filebeat-config.yml
+- Edit the filebeat-config.yml in
+```
+$ cd /etc/ansible/files
+$ nano filebeat-config.yml
+```
   - Scroll to line #1106 and replace the IP address with the IP address of your ELK machine.
     ```
     output.elasticsearch:
@@ -255,11 +259,11 @@ $ ansible-playbook filebeat-playbook.yml
   - Click Docker Metrics.
   - Click the DEB tab under Getting Started for the correct Linux instructions.
 
-- In your Ansible container run ```curl https://gist.githubusercontent.com/slape/58541585cc1886d2e26cd8be557ce04c/raw/0ce2c7e744c54513616966affb5e9d96f5e12f73/metricbeat > /etc/ansible/metricbeat-config.yml```
+- In your Ansible container run ```curl https://gist.githubusercontent.com/slape/58541585cc1886d2e26cd8be557ce04c/raw/0ce2c7e744c54513616966affb5e9d96f5e12f73/metricbeat > /etc/ansible/files/metricbeat-config.yml```
 
 - Edit the metricbeat-config.yml
 ```
-$ cd /etc/ansible
+$ cd /etc/ansible/files
 $ nano metricbeat-config.yml
 ```
 
