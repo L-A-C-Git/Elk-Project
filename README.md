@@ -225,11 +225,13 @@ cd /etc/ansible/files
 - In your Ansible container run ```curl https://gist.githubusercontent.com/slape/5cc350109583af6cbe577bbcc0710c93/raw/eca603b72586fbe148c11f9c87bf96a63cb25760/Filebeat > /etc/ansible/files/filebeat-config.yml```
 
 - Edit the filebeat-config.yml in
+
 ```
 $ cd /etc/ansible/files
 $ nano filebeat-config.yml
 ```
-  - Scroll to line #1106 and replace the IP address with the IP address of your ELK machine.
+
+- Scroll to line #1106 and replace the IP address with the IP address of your ELK machine.
     ```
     output.elasticsearch:
     hosts: ["10.1.0.4:9200"]
@@ -237,7 +239,7 @@ $ nano filebeat-config.yml
     password: "changeme"
     ```
 
-  - Scroll to line #1806 and replace the IP address with the IP address of your ELK machine.
+- Scroll to line #1806 and replace the IP address with the IP address of your ELK machine.
     ```
     setup.kibana:
     host: "10.1.0.4:5601"
@@ -262,19 +264,20 @@ $ ansible-playbook filebeat-playbook.yml
 - In your Ansible container run ```curl https://gist.githubusercontent.com/slape/58541585cc1886d2e26cd8be557ce04c/raw/0ce2c7e744c54513616966affb5e9d96f5e12f73/metricbeat > /etc/ansible/files/metricbeat-config.yml```
 
 - Edit the metricbeat-config.yml
+
 ```
 $ cd /etc/ansible/files
 $ nano metricbeat-config.yml
 ```
 
-  - Scroll to line #62 and replace the IP address with the IP address of your ELK machine
+- Scroll to line #62 and replace the IP address with the IP address of your ELK machine
   ```
   # This requires a Kibana endpoint configuration.
   setup.kibana:
   host: "10.1.0.4:5601"
   ```
 
-  - Scroll to line #95 and replace the IP address with the IP address of your ELK machine.
+- Scroll to line #95 and replace the IP address with the IP address of your ELK machine.
   ```
   output.elasticsearch:
   # Array of hosts to connect to.
