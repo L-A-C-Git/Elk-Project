@@ -232,18 +232,20 @@ $ nano filebeat-config.yml
 ```
 
 - Scroll to line #1106 and replace the IP address with the IP address of your ELK machine.
-    ```
-    output.elasticsearch:
-    hosts: ["10.1.0.4:9200"]
-    username: "elastic"
-    password: "changeme"
-    ```
+
+```
+output.elasticsearch:
+hosts: ["10.1.0.4:9200"]
+username: "elastic"
+password: "changeme"
+```
 
 - Scroll to line #1806 and replace the IP address with the IP address of your ELK machine.
-    ```
-    setup.kibana:
-    host: "10.1.0.4:5601"
-    ```
+
+```
+setup.kibana:
+host: "10.1.0.4:5601"
+```
 
 - In your Ansible container run the following playbook to install Filebeat:
 
@@ -271,20 +273,22 @@ $ nano metricbeat-config.yml
 ```
 
 - Scroll to line #62 and replace the IP address with the IP address of your ELK machine
-  ```
-  # This requires a Kibana endpoint configuration.
-  setup.kibana:
-  host: "10.1.0.4:5601"
-  ```
+
+```
+# This requires a Kibana endpoint configuration.
+setup.kibana:
+host: "10.1.0.4:5601"
+```
 
 - Scroll to line #95 and replace the IP address with the IP address of your ELK machine.
-  ```
-  output.elasticsearch:
-  # Array of hosts to connect to.
-  hosts: ["10.1.0.4:9200"]
-  username: "elastic"
-  password: "changeme"
-  ```
+
+```
+output.elasticsearch:
+# Array of hosts to connect to.
+hosts: ["10.1.0.4:9200"]
+username: "elastic"
+password: "changeme"
+```
 
 - In your Ansible container run the following playbook to install Metricbeat:
 
